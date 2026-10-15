@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b0b0c">
+<title>Urna de Avaliação - Igreja Verbo da Vida</title>
+<style>
+:root{--amb:#f59e0b;--amb2:#fbbf24;--ambd:#b45309;--ink:#0b0b0c;--bg:#faf7f0;--card:#fff;--tx:#17171a;--mut:#6b7280;--line:#e7e2d6}
+@media (prefers-color-scheme:dark){:root{--bg:#121214;--card:#1c1c1f;--tx:#f4f4f5;--mut:#a1a1aa;--line:#2e2e33}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.45;padding-bottom:env(safe-area-inset-bottom)}
+.top{background:var(--ink);color:#fff;padding:calc(12px + env(safe-area-inset-top)) 14px 12px;border-bottom:4px solid var(--amb);text-align:center}
+.top h1{margin:0;font-size:clamp(1.05rem,3.6vw,1.7rem);color:var(--amb2);letter-spacing:.01em}
+.top p{margin:4px 0 0;font-size:clamp(.78rem,2.4vw,.95rem);color:#e5e5e5}
+.wrap{max-width:1040px;margin:0 auto;padding:12px 12px 24px;display:grid;gap:14px;grid-template-columns:1fr}
+@media (min-width:900px){.wrap{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);align-items:start}}
+.urna{font-size:clamp(10px,2.85vw,15px);display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:.9em;padding:1em;max-width:620px;margin:0 auto;width:100%;background:linear-gradient(#e4e1d8,#cdcac0);border:1px solid #a9a69b;border-radius:1.2em;box-shadow:0 10px 26px rgba(0,0,0,.3),inset 0 1px 0 #fff;color:#111}
+.tela{background:#f7f7f2;border:.4em solid #55554f;border-radius:.5em;padding:.8em;min-height:23em;display:flex;flex-direction:column;box-shadow:inset 0 0 .6em rgba(0,0,0,.25)}
+.cargo{font-size:.68em;letter-spacing:.1em;color:#333;font-weight:700}
+.titulo{font-size:1.2em;font-weight:800;margin:.1em 0 .4em}
+.num{display:flex;gap:.4em;align-items:center;margin:.3em 0 .6em}.num .l{font-size:.78em;margin-right:.3em}
+.box{width:1.6em;height:1.9em;border:.12em solid #111;font-size:1.5em;font-weight:800;display:flex;align-items:center;justify-content:center;background:#fff}
+.box.cur{border-color:var(--amb);box-shadow:0 0 0 .1em rgba(245,158,11,.5)}
+.info{display:flex;gap:.6em;flex:1;align-items:flex-start;flex-wrap:wrap}.txt{font-size:.82em;flex:1 1 7em;line-height:1.4}
+.foto{position:relative;overflow:hidden;width:6em;height:7.5em;border:.1em solid #333;background:linear-gradient(160deg,var(--amb2),var(--ambd));display:flex;align-items:center;justify-content:center;font-weight:800;color:#111;flex:none}
+.foto span{font-size:2.2em}
+.foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.fotos{display:flex;gap:.4em;flex:none}.fotos .foto{width:4.8em;height:6.2em}.fotos .foto span{font-size:1.8em}
+.fotos.solo .foto:nth-child(1){width:6em;height:7.5em}.fotos.solo .foto:nth-child(2){display:none}
+.rodape{border-top:.08em solid #888;margin-top:.5em;padding-top:.4em;font-size:.62em;color:#333;line-height:1.35}
+.aviso{font-size:1.2em;font-weight:800;text-align:center;margin:auto 0}.aviso small{font-weight:500;font-size:.7em}
+.fim{font-size:3.4em;font-weight:900;text-align:center;margin:auto 0;letter-spacing:.1em}
+.tec{background:#3b3b3e;border-radius:.7em;padding:.7em;display:flex;flex-direction:column;gap:.6em;box-shadow:inset 0 0 .5em rgba(0,0,0,.6)}
+.logo{color:#d6d6d6;font-size:.52em;text-align:center;letter-spacing:.14em}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:.4em}
+.k{background:#0e0e0f;color:#fff;border:0;border-radius:.35em;height:2.6em;font-size:1.15em;font-weight:700;cursor:pointer;box-shadow:0 .15em 0 #000}
+.k:active,.a:active{transform:translateY(.1em)}.k.z{grid-column:2}
+.ac{display:grid;grid-template-columns:1fr 1fr;gap:.4em;margin-top:.2em}
+.a{border:0;border-radius:.35em;min-height:3em;font-weight:800;font-size:.62em;cursor:pointer;box-shadow:0 .2em 0 rgba(0,0,0,.6)}
+.branco{background:#fff;color:#111}.corrige{background:#f26b21;color:#111}.confirma{grid-column:1/-1;background:#2ea043;color:#fff;min-height:3.4em;font-size:.72em}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px}
+.card h2{margin:0 0 10px;font-size:1.05rem}
+#lista{display:grid;gap:6px}
+#lista div{display:flex;gap:10px;align-items:baseline;padding:8px 10px;border-radius:10px;background:rgba(245,158,11,.08);font-size:.92rem}
+#lista b{min-width:28px;color:var(--ambd);font-size:1rem}#lista small{color:var(--mut)}
+@media (min-width:900px){#lista{max-height:640px;overflow:auto}}
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.72);align-items:center;justify-content:center;padding:14px;z-index:10}
+.mbox{background:var(--card);color:var(--tx);max-width:560px;width:100%;max-height:92vh;overflow:auto;border-radius:20px;padding:20px;border-top:5px solid var(--amb)}
+.mbox h2{margin:0 0 6px;font-size:1.2rem}.mbox h3{font-size:.95rem;margin:16px 0 6px}
+.nota{background:rgba(245,158,11,.12);border:1px solid rgba(245,158,11,.5);border-radius:12px;padding:10px 12px;font-size:.85rem;margin:8px 0}
+.mbox input[type=text],.mbox select,.mbox textarea{width:100%;padding:12px;border-radius:12px;border:1.5px solid var(--line);font:inherit;background:var(--card);color:var(--tx)}
+.mbox input[type=text]:focus,.mbox select:focus,.mbox textarea:focus{outline:3px solid rgba(245,158,11,.45);border-color:var(--amb)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}.chip{position:relative}
+.chip input{position:absolute;opacity:0;inset:0;cursor:pointer}
+.chip span{display:block;padding:9px 14px;border:1.5px solid var(--line);border-radius:999px;font-size:.9rem}
+.chip input:checked+span{background:var(--amb);border-color:var(--amb);color:#111;font-weight:700}
+.chip input:focus-visible+span{outline:3px solid rgba(245,158,11,.5)}
+.passo{display:inline-block;background:var(--amb);color:#111;font-weight:800;font-size:.78rem;border-radius:999px;padding:3px 12px;margin:0 0 10px}
+.regras{background:var(--ink);color:#fff;border-radius:12px;padding:12px 14px;margin:8px 0;font-size:.92rem;border-left:5px solid var(--amb)}
+.regras b:first-child{color:var(--amb2);font-size:1rem}.regras ol{margin:8px 0 0;padding-left:20px}.regras li{margin:6px 0}
+.er{color:#dc2626;font-size:.88rem;min-height:1.3em;margin:8px 0 0;font-weight:600}
+.btn{background:var(--ink);color:var(--amb2);border:2px solid var(--amb);border-radius:12px;padding:12px 20px;font-size:1rem;font-weight:800;cursor:pointer;margin:10px 8px 0 0}
+.btn.pri{background:var(--amb);color:#111}.btn:disabled{opacity:.55}
+#busca{width:100%;padding:11px 12px;border-radius:12px;border:1.5px solid var(--line);font:inherit;background:var(--card);color:var(--tx);margin:6px 0 4px}
+#busca:focus{outline:3px solid rgba(245,158,11,.45);border-color:var(--amb)}
+.dica{font-size:.8rem;color:var(--mut);margin:4px 0 8px}
+#lista{display:block}
+#lista details{border:1px solid var(--line);border-radius:12px;margin:6px 0;overflow:hidden}
+#lista summary{cursor:pointer;padding:10px 12px;font-weight:700;background:rgba(245,158,11,.1);list-style:none;display:flex;justify-content:space-between}
+#lista summary::-webkit-details-marker{display:none}
+#lista summary span{color:var(--ambd);font-weight:800}
+#lista .it{display:flex;gap:10px;align-items:center;width:100%;text-align:left;background:transparent;color:var(--tx);border:0;border-top:1px solid var(--line);padding:9px 12px;font:inherit;cursor:pointer}
+#lista .it:hover{background:rgba(245,158,11,.12)}
+#lista .it b{min-width:2em;background:var(--ink);color:var(--amb2);border-radius:8px;text-align:center;padding:2px 4px;font-size:.9rem}
+#lista .it span{color:var(--tx);font-size:.95rem}
+</style></head>
+<body>
+<header class="top"><h1>Igreja Verbo da Vida - Marcolândia/PI</h1><p>Votação dos 3 melhores voluntários · dinâmica de comunhão entre líderes e voluntários</p></header>
+<main class="wrap">
+ <section class="urna" aria-label="Urna eletrônica">
+  <div class="tela" id="tela"></div>
+  <div class="tec"><div class="logo">URNA ELETRÔNICA</div><div class="grid3" id="grid"></div>
+   <div class="ac"><button class="a branco" onclick="branco()">BRANCO</button><button class="a corrige" onclick="corrige()">CORRIGE</button><button class="a confirma" onclick="confirma()">CONFIRMA</button></div></div>
+ </section>
+ <aside class="card"><div id="regras"></div><h2 style="margin-top:16px">Voluntários e números</h2><input id="busca" type="search" placeholder="🔍 Buscar voluntário pelo nome" autocomplete="off" oninput="lista(this.value)"><p class="dica">Toque no nome para escolher o número na urna.</p><div id="lista"></div></aside>
+</main>
+<div class="modal" id="modal"><div class="mbox" id="mb"></div></div>
+<script>
+const P=[{"n":"01","nome":"Ana Paula","deps":["Louvor"]},{"n":"02","nome":"Dhjuam Pablo","deps":["Louvor"]},{"n":"03","nome":"Douglas","deps":["Louvor","Consolidar"]},{"n":"04","nome":"Edna Rafaela","deps":["Louvor","Verbo Comunicação"]},{"n":"05","nome":"Eloan","deps":["Louvor"]},{"n":"06","nome":"Emanuel Duarte","deps":["Louvor","Verbo Comunicação"]},{"n":"07","nome":"Jonas","deps":["Louvor","Diaconato"]},{"n":"08","nome":"Lanna Sério","deps":["Louvor","Consolidar"]},{"n":"09","nome":"Leandro Farias","deps":["Louvor","Diaconato"]},{"n":"10","nome":"Mariana","deps":["Louvor","Oração"]},{"n":"11","nome":"Manoel","deps":["Louvor"]},{"n":"12","nome":"Morgana Evellyn","deps":["Louvor"]},{"n":"13","nome":"Paulo Cenny","deps":["Louvor"]},{"n":"14","nome":"Pedro Lucas","deps":["Louvor","Verbo Comunicação"]},{"n":"15","nome":"Queila","deps":["Louvor","Diaconato"]},{"n":"16","nome":"Raquel Rodrigues","deps":["Louvor","Consolidar"]},{"n":"17","nome":"Ravenna Rodrigues","deps":["Louvor"]},{"n":"18","nome":"Rawane","deps":["Louvor"]},{"n":"19","nome":"Samy Campos","deps":["Louvor","Verbo Comunicação"]},{"n":"20","nome":"Sislley","deps":["Louvor"]},{"n":"21","nome":"Valdizar","deps":["Louvor","Verbo Comunicação","Guardiões"]},{"n":"22","nome":"Venicius Rodrigues","deps":["Louvor","Diaconato","Guardiões"]},{"n":"23","nome":"Wilson","deps":["Louvor","Diaconato"]},{"n":"24","nome":"Anyelle","deps":["Verbo Comunicação","Gestão de Culto"]},{"n":"25","nome":"Ana Eduarda","deps":["Verbo Comunicação"]},{"n":"26","nome":"Davi Miranda","deps":["Verbo Comunicação","Verbo Café"]},{"n":"27","nome":"Érika Hioanny","deps":["Verbo Comunicação","Gestão de Culto"]},{"n":"28","nome":"Gabriel","deps":["Verbo Comunicação"]},{"n":"29","nome":"Giulianny","deps":["Verbo Comunicação","Gestão de Culto"]},{"n":"30","nome":"Joanna","deps":["Verbo Comunicação"]},{"n":"31","nome":"Mona","deps":["Verbo Comunicação"]},{"n":"32","nome":"Maila Arlete","deps":["Verbo Comunicação","Connecte"]},{"n":"33","nome":"Arianne Carvalho","deps":["Verbo Comunicação","Consolidar"]},{"n":"34","nome":"Maria Eduarda","deps":["Verbo Comunicação","Gestão de Culto"]},{"n":"35","nome":"Murilo Carvalho","deps":["Verbo Comunicação"]},{"n":"36","nome":"Paulo Henrique","deps":["Verbo Comunicação"]},{"n":"37","nome":"Roberio","deps":["Verbo Comunicação"]},{"n":"38","nome":"Ryan Christian","deps":["Verbo Comunicação"]},{"n":"39","nome":"Glenda","deps":["Verbo Comunicação","Gestão de Culto"]},{"n":"40","nome":"Dalva Lopes","deps":["Connecte","Verbo Café"]},{"n":"41","nome":"Luciete Silva","deps":["Connecte","Verbo Café","Oração"]},{"n":"42","nome":"Talita","deps":["Connecte"]},{"n":"43","nome":"Oseias","deps":["Consolidar"]},{"n":"44","nome":"Vanessa","deps":["Consolidar","Gestão de Culto"]},{"n":"45","nome":"Maycon","deps":["Gestão de Culto"]},{"n":"46","nome":"Túlio","deps":["Gestão de Culto"]},{"n":"47","nome":"Milene","deps":["Verbo Shop"]},{"n":"48","nome":"Thais","deps":["Verbo Shop","Oração"]},{"n":"49","nome":"Aline","deps":["Verbo Shop"]},{"n":"50","nome":"Valdenha","deps":["Verbo Shop","Verbo Café"]},{"n":"51","nome":"Djanes Andrade","deps":["Verbo Shop","Oração","Diaconato"]},{"n":"52","nome":"Maisa","deps":["Verbo Shop","Diaconato"]},{"n":"53","nome":"Cleide","deps":["Verbo Café","Trânsito","Diaconato"]},{"n":"54","nome":"Adriana","deps":["Verbo Café"]},{"n":"55","nome":"Claudia","deps":["Verbo Café"]},{"n":"56","nome":"Eliane Fernandes","deps":["Verbo Café"]},{"n":"57","nome":"Fátima","deps":["Verbo Café"]},{"n":"58","nome":"Gil","deps":["Verbo Café","Diaconato","Guardiões"]},{"n":"59","nome":"Marlene","deps":["Verbo Café","Oração"]},{"n":"60","nome":"Maria Reis","deps":["Verbo Café"]},{"n":"61","nome":"Silvanete","deps":["Verbo Café"]},{"n":"62","nome":"Belinha","deps":["Verbo Café"]},{"n":"63","nome":"Sthefany Silva","deps":["Verbo Café"]},{"n":"64","nome":"Delzuite","deps":["Oração"]},{"n":"65","nome":"Tatiane","deps":["Oração"]},{"n":"66","nome":"Gardênia","deps":["Oração"]},{"n":"67","nome":"Andréia","deps":["Oração"]},{"n":"68","nome":"Catarina","deps":["Oração"]},{"n":"69","nome":"Amanda","deps":["Oração"]},{"n":"70","nome":"Luzinete","deps":["Oração"]},{"n":"71","nome":"Sandro","deps":["Trânsito","Diaconato","Guardiões"]},{"n":"72","nome":"Felipe","deps":["Trânsito","Diaconato"]},{"n":"73","nome":"Gustavo","deps":["Trânsito","Diaconato"]},{"n":"74","nome":"Jackson","deps":["Trânsito","Diaconato"]},{"n":"75","nome":"Jaqueline","deps":["Diaconato"]},{"n":"76","nome":"Antônio","deps":["Diaconato"]},{"n":"77","nome":"Laís Lima","deps":["Diaconato"]},{"n":"78","nome":"Vicente","deps":["Diaconato"]},{"n":"79","nome":"Breno Ricardo","deps":["Diaconato"]},{"n":"80","nome":"Aparecida","deps":["Diaconato"]},{"n":"81","nome":"Flávia","deps":["Diaconato"]},{"n":"82","nome":"Paulo Rossi","deps":["Diaconato"]},{"n":"83","nome":"Stanley","deps":["Guardiões"]},{"n":"84","nome":"Cícero","deps":["Guardiões"]},{"n":"85","nome":"Mateus","deps":["Guardiões"]}];
+const LID=[["Oseias (Discipulado e Consolidar)","Oseias"],["Ariane (Discipulado e Consolidar)","Arianne Carvalho"],["Felipe (Casais)","Felipe"],["Morgana (Casais)","Morgana Evellyn"],["Queila (Diáconos e Eventos)","Queila"],["Wilson (Diáconos)","Wilson"],["Breno (Acolhe/Evangelismo)","Breno Ricardo"],["Rebeca (Acolhe/Evangelismo)",null],["Dhjuam (Abraço)","Dhjuam Pablo"],["Mariana (Abraço)","Mariana"],["Adairlan (MOVE)",null],["Aline (MOVE)","Aline"],["Emanuel (WAVE)","Emanuel Duarte"],["Mona (WAVE)","Mona"],["Venicius (Verbo Criança)","Venicius Rodrigues"],["Bruna (Verbo Criança)",null],["Igor (Comunicação)",null],["Vanessa (Comunicação)","Vanessa"],["Samy (Comunicação)","Samy Campos"],["Jonas (Louvor)","Jonas"],["Gil (Social)","Gil"],["Erlania (Social)",null],["Milene (Verbo Shop)","Milene"],["Aparecida (Verbo Café)","Aparecida"],["Maila (Connecte)","Maila Arlete"],["Delzuite (Oração)","Delzuite"],["Edna Gardênia (Oração e Mulheres)","Gardênia"],["Janaína (Mulheres)",null],["Maycon (Gestão de Culto)","Maycon"],["Érika (Gestão de Culto)","Érika Hioanny"],["Roberio (Guardiões)","Roberio"],["Sandro (Trânsito)","Sandro"],["Paullo Rossi (Homens)","Paulo Rossi"]];
+const DEPS=["Louvor", "Verbo Comunicação", "Connecte", "Consolidar", "Gestão de Culto", "Verbo Shop", "Verbo Café", "Oração", "Trânsito", "Diaconato", "Guardiões"];
+const FORM_ID="262858675868078";
+const CAMPOS={lider:"q2_dropdown0",v:["q3_dropdown1","q4_dropdown2","q5_dropdown3"]}; // nomes dos campos no Jotform
+const CHAVE="verbo_votou_vol",LIBERAR="verbo21"; // para liberar um aparelho: abra o site com ?liberar=verbo21
+try{if(new URLSearchParams(location.search).get("liberar")===LIBERAR)localStorage.removeItem(CHAVE)}catch(e){}
+const jaVotou=()=>{try{return localStorage.getItem(CHAVE)==="1"}catch(e){return false}};
+const marcar=()=>{try{localStorage.setItem(CHAVE,"1")}catch(e){}};
+let d="",modo="v",ident=false,NOME="",ESC=[],ESCN=[],MEU="";
+const $=id=>document.getElementById(id);
+const norm=s=>s.normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase();
+const cand=()=>d.length===2?P.find(p=>p.n===d)||null:null;
+const rot=p=>p.n+" - "+p.nome;
+function beep(f,t){try{const c=new (window.AudioContext||window.webkitAudioContext)(),o=c.createOscillator(),g=c.createGain();o.frequency.value=f;g.gain.value=.08;o.connect(g);g.connect(c.destination);o.start();o.stop(c.currentTime+t/1000)}catch(e){}}
+let temMp3=true;
+function beepLongo(){try{const c=new (window.AudioContext||window.webkitAudioContext)(),o=c.createOscillator(),g=c.createGain(),t=c.currentTime;o.type="sine";o.frequency.value=1000;g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(.2,t+.03);g.gain.setValueAtTime(.2,t+.75);g.gain.exponentialRampToValueAtTime(.0001,t+.95);o.connect(g);g.connect(c.destination);o.start();o.stop(t+1)}catch(e){}}
+// Som de confirmação: usa confirma.mp3 (junto do index.html), se existir; senão toca um bipe longo parecido.
+function somConfirma(){
+ if(!temMp3){beepLongo();return}
+ let u=false;const fb=()=>{if(!u){u=true;temMp3=false;beepLongo()}};
+ try{const a=new Audio("confirma.mp3");a.onerror=fb;const p=a.play();if(p&&p.catch)p.catch(fb)}catch(e){fb()}
+}
+const EXT=[".jpg",".png",".jpg.jpg",".png.png",".jpeg",".JPG",".PNG"]; // fotos: NN.jpg (número do voluntário)
+function fe(i){const n=(+i.dataset.n||0)+1;i.dataset.n=n;if(n<EXT.length)i.src=i.dataset.b+EXT[n];else i.style.display="none"}
+function render(){
+ const t=$("tela");
+ if(jaVotou()&&modo!=="x"){t.innerHTML='<div class="aviso">VOCÊ JÁ VOTOU<br><small>Obrigado por participar!</small></div>';return}
+ if(!ident&&modo!=="x"){t.innerHTML='<div class="aviso">IDENTIFIQUE-SE<br>PARA VOTAR</div>';return}
+ if(modo==="x"){t.innerHTML='<div class="fim">FIM</div>';return}
+ let h='<div class="cargo">SEU VOTO PARA</div><div class="titulo">Voluntário</div><div><span class="passo">Voto '+(ESC.length+1)+' de 3</span></div>';
+ if(modo==="b")h+='<div class="aviso">VOTO EM BRANCO</div>';
+ else{
+  h+='<div class="num"><span class="l">Número:</span>';
+  for(let i=0;i<2;i++)h+='<div class="box'+(i===d.length?' cur':'')+'">'+(d[i]||"")+'</div>';
+  h+='</div>';
+  if(d.length===2){const c=cand();
+   if(!c)h+='<div class="info"><div class="txt"><b>NÚMERO ERRADO</b><br><b>VOTO NULO</b></div></div>';
+   else h+='<div class="info"><div class="txt"><b>Voluntário:</b> '+c.nome+'<br><b>Departamento:</b> '+c.deps.join(", ")+(ESCN.includes(d)?'<br><b style="color:#b91c1c">Você já escolheu este voluntário.</b>':'')+(d===MEU?'<br><b style="color:#b91c1c">Líder não vota em si mesmo.</b>':'')+'</div><div class="foto"><span>'+c.nome[0]+'</span><img src="'+d+'.jpg" data-b="'+d+'" alt="" onerror="fe(this)"></div></div>'}
+ }
+ h+='<div class="rodape">'+(ESCN.filter(x=>x).length?'Já escolhidos: '+ESCN.filter(x=>x).join(", ")+' · ':'')+'CONFIRMA registra o voto · CORRIGE reinicia</div>';
+ t.innerHTML=h;
+}
+const bloq=()=>jaVotou()||!ident;
+function tecla(x){if(modo!=="v"||d.length>=2||bloq())return;d+=x;beep(900,80);render()}
+function corrige(){if(modo==="x"||bloq())return;d="";modo="v";beep(500,80);render()}
+function branco(){if(modo==="x"||bloq())return;d="";modo="b";beep(700,80);render()}
+function confirma(){
+ if(modo==="x"||bloq())return;
+ let r,c="";
+ if(modo==="b")r="Voto em branco";
+ else{
+  if(d.length<2){beep(300,200);return}
+  const p=cand();
+  if(!p)r="Voto nulo";
+  else{if(ESCN.includes(d)||d===MEU){beep(300,300);return}r=rot(p);c=d}
+ }
+ ESC.push(r);ESCN.push(c);d="";modo="v";somConfirma();
+ if(ESC.length<3)render();else revisar();
+}
+function revisar(){
+ modo="x";render();
+ $("mb").innerHTML='<h2>Confira seus 3 votos</h2><ol>'+ESC.map(x=>'<li>'+x+'</li>').join("")+'</ol>'
+ +'<button class="btn pri" onclick="enviar()">Enviar meus votos</button><button class="btn" onclick="refazer()">Refazer</button>';
+ $("modal").style.display="flex";
+}
+function refazer(){ESC=[];ESCN=[];d="";modo="v";$("modal").style.display="none";render()}
+async function postar(){
+ const fd=new FormData(),add=(k,x)=>fd.append(k,x);
+ add("formID",FORM_ID);add("simple_spc",FORM_ID+"-"+FORM_ID);add(CAMPOS.lider,NOME);
+ ESC.forEach((x,i)=>add(CAMPOS.v[i],x));
+ try{await fetch("https://submit.jotform.com/submit/"+FORM_ID,{method:"POST",mode:"no-cors",body:fd});return true}catch(e){return false}
+}
+async function enviar(){
+ $("mb").innerHTML='<h2>Enviando seus votos…</h2><p>Aguarde um instante.</p>';
+ const ok=await postar();
+ if(ok){marcar();beep(600,150);setTimeout(()=>beep(600,350),180);$("mb").innerHTML='<h2>✅ Votos registrados</h2><ol>'+ESC.map(x=>'<li>'+x+'</li>').join("")+'</ol><p>Obrigado por participar!</p><button class="btn pri" onclick="novo()">Concluir</button>'}
+ else $("mb").innerHTML='<h2>Não foi possível enviar</h2><p>Verifique sua internet e tente de novo.</p><button class="btn pri" onclick="enviar()">Tentar de novo</button>';
+}
+function novo(){$("modal").style.display="none";d="";modo="v";render()}
+const REGRAS='<div class="regras"><b>📋 Regras</b><ol><li><b>Cada líder tem direito a 3 votos.</b> Escolha os voluntários que mais se destacaram, de qualquer departamento.</li><li><b>Líder não vota em si mesmo.</b> Se você também é voluntário, indique outras pessoas.</li></ol></div>';
+function abrirIdent(){
+ $("mb").innerHTML='<h2>Antes de votar</h2>'+REGRAS
+ +'<div class="nota">🔒 <b>Informação confidencial.</b> Seu nome fica registrado junto dos seus votos e só o responsável pela votação tem acesso. Ele serve apenas para controle, para evitar votos de fora e votos repetidos.</div>'
+ +'<h3>Quem é você?</h3><select id="ld"><option value="">Escolha o seu nome…</option>'+LID.map((x,i)=>'<option value="'+i+'">'+x[0]+'</option>').join("")+'</select>'
+ +'<p class="er" id="er"></p><button class="btn pri" onclick="entrar()">Começar a votar</button>';
+ $("modal").style.display="flex";
+}
+function entrar(){
+ const v=$("ld").value;
+ if(v===""){$("er").textContent="Escolha o seu nome na lista de líderes.";return}
+ const x=LID[+v];NOME=x[0];const p=x[1]?P.find(q=>q.nome===x[1]):null;MEU=p?p.n:"";
+ ident=true;$("modal").style.display="none";render();
+}
+const item=p=>'<button class="it" onclick="pick(\''+p.n+'\')"><b>'+p.n+'</b><span>'+p.nome+'</span></button>';
+function lista(f){
+ const q=norm(f||"").trim();let h="";
+ if(q){const r=P.filter(p=>norm(p.nome).includes(q));h=r.length?r.map(item).join(""):'<p class="dica">Nenhum voluntário encontrado.</p>'}
+ else h=DEPS.map(dep=>{const ps=P.filter(p=>p.deps.includes(dep));return '<details><summary>'+dep+' <span>'+ps.length+'</span></summary>'+ps.map(item).join("")+'</details>'}).join("");
+ $("lista").innerHTML=h;
+}
+function pick(n){if(bloq()||modo==="x")return;d=n;modo="v";render();beep(900,80);try{$("tela").scrollIntoView({block:"center",behavior:"smooth"})}catch(e){}}
+const g=$("grid");
+[1,2,3,4,5,6,7,8,9,0].forEach(n=>{const b=document.createElement("button");b.className="k"+(n===0?" z":"");b.textContent=n;b.onclick=()=>tecla(String(n));g.appendChild(b)});
+document.addEventListener("keydown",e=>{
+ if($("modal").style.display==="flex"||e.target.id==="busca")return;
+ if(e.key>="0"&&e.key<="9")tecla(e.key);else if(e.key==="Enter")confirma();else if(e.key==="Backspace")corrige();else if(e.key==="b"||e.key==="B")branco();
+});
+$("regras").innerHTML=REGRAS;
+lista("");
+render();
+if(!jaVotou())abrirIdent();
+</script></body></html>
